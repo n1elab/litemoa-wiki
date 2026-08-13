@@ -1,0 +1,15 @@
+.sl-markdown-content h2 {
+  /* 左側の縦線（Starlightのアクセントカラーを使用） */
+  border-left: 5px solid var(--sl-color-accent);
+  /* 下線（Starlightの区切り線用カラーを使用） */
+  border-bottom: 1px solid var(--sl-color-hairline);
+  
+  /* 縦線と文字の間の余白 */
+  padding-left: 0.6rem;
+  /* 下線と文字の間の余白 */
+  padding-bottom: 0.4rem;
+  
+  /* 上下の余白調整 */
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}

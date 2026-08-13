@@ -1,31 +1,41 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import pagePlugin from "@pelagornis/page";
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
 		starlight({
-			plugins: [pagePlugin()],
-			title: 'MiLight Server Wiki💡ミライト鯖 Wiki',
+
+			title: 'Litemoa Server Wiki',
+
+			customCss: [
+				// ##のデザインを変更するためのCSS(##と###の違いをわかりやすくするため)
+				'./src/styles/custom_markdown-h2.css',
+			],
+
+			components: {
+				// footerを追加する
+				Footer: './src/components/Footer.astro',
+			},
+
 			social: [
 				{ icon: 'discord', label: 'Discord', href: 'http://discord.gg/UyKV4BDxBR' },
-				{ icon: 'pencil', label: 'Edit', href: 'https://github.com/n1elab/ml-wiki/' }
+				{ icon: 'x.com', label: 'X', href: 'https://x.com/litemoa' },
+				{ icon: 'youtube', label: 'youtube', href: 'https://www.youtube.com/channel/UC_p9eD-ZmbDRSJ5HsvDqcoQ?sub_confirmation=1' },
 			],
+
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'はじめに',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: '利用規約', slug: 'rules' },
+						{ label: 'プライバシーポリシー', slug: 'policy' },
+						{ label: '参加方法', slug: 'join' },
 					],
 				},
-				{
-					label: 'Reference',
-					items: [{ autogenerate: { directory: 'reference' } }],
-				},
 			],
+
 		}),
 	],
 });
