@@ -1,42 +1,41 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import pagePlugin from "@pelagornis/page";
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
 		starlight({
-			plugins: [pagePlugin()],
 
-			title: 'MiLight Server Wiki💡ミライト鯖 Wiki',
+			title: 'Litemoa Server Wiki',
+
+			customCss: [
+				// ##のデザインを変更するためのCSS(##と###の違いをわかりやすくするため)
+				'./src/styles/custom_markdown-h2.css',
+			],
+
+			components: {
+				// footerを追加する
+				Footer: './src/components/Footer.astro',
+			},
 
 			social: [
 				{ icon: 'discord', label: 'Discord', href: 'http://discord.gg/UyKV4BDxBR' },
-				{ icon: 'x.com', label: 'X', href: 'https://x.com/ml_ms2' },
+				{ icon: 'x.com', label: 'X', href: 'https://x.com/litemoa' },
 				{ icon: 'youtube', label: 'youtube', href: 'https://www.youtube.com/channel/UC_p9eD-ZmbDRSJ5HsvDqcoQ?sub_confirmation=1' },
-				{ icon: 'pen', label: 'Edit', href: 'https://github.com/n1elab/ml-wiki/' }
 			],
 
 			sidebar: [
 				{
-					label: 'ガイド',
+					label: 'はじめに',
 					items: [
-						{ label: '🛡️ 利用規約', slug: 'rules' },
-						{ label: '🚪 参加方法', slug: 'join' },
-					],
-				},
-				{
-					label: '関連リンク',
-					items: [
-						{ label: '🏠 公式サイト', link: 'http://mlms.n1e.net' },
-						{ label: '📄 公式Wiki', link: 'http://wiki-mlms.n1e.net' },
-						{ label: '🗺️ ウェブマップ', link: 'http://map-mlms.n1e.net' },
-						{ label: '💬 公式Discord', link: 'http://discord.gg/UyKV4BDxBR' },
+						{ label: '利用規約', slug: 'rules' },
+						{ label: 'プライバシーポリシー', slug: 'policy' },
+						{ label: '参加方法', slug: 'join' },
 					],
 				},
 			],
-			
+
 		}),
 	],
 });

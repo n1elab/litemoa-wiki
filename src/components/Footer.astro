@@ -1,0 +1,93 @@
+---
+// src/components/Footer.astro
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/Footer.astro';
+---
+
+<Default {...Astro.props} />
+
+<footer class="custom-footer">
+  <div class="footer-links">
+    <a href="https://litemoa.n1e.net" target="_blank" rel="noopener noreferrer">公式サイト</a>
+    <span class="divider"> | </span>
+    <a href="https://litemoawiki.n1e.net" target="_blank" rel="noopener noreferrer">ウィキ</a>
+    <span class="divider"> | </span>
+    <a href="https://litemoamap.n1e.net" target="_blank" rel="noopener noreferrer">ウェブマップ</a>
+    <span class="divider"> | </span>
+    <a href="https://litemoawiki.n1e.net/rules" target="_blank" rel="noopener noreferrer">利用規約</a>
+    <span class="divider"> | </span>
+    <a href="https://litemoawiki.n1e.net/policy" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
+  </div>
+
+  <p class="disclaimer">
+    Not an official Minecraft product. Not approved by or associated with Mojang.
+  </p>
+
+  <p class="copyright">
+    &copy; 2026 Litemoa Server / &copy; 2026 Litemoa / &copy; 2026 N1E Lab
+  </p>
+</footer>
+
+<style>
+  .custom-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid var(--sl-color-hairline);
+    text-align: center;
+    font-size: var(--sl-text-xs);
+    color: var(--sl-color-gray-3);
+  }
+
+  /* リンクエリア */
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-links a {
+    color: var(--sl-color-gray-2);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--sl-color-text-accent);
+    text-decoration: underline;
+  }
+
+  .divider {
+    color: var(--sl-color-gray-4);
+    font-size: 0.8em;
+  }
+
+  /* 免責事項 */
+  .disclaimer {
+    margin: 0.5rem 0;
+    color: var(--sl-color-gray-4);
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  /* 著作権表記 */
+  .copyright {
+    margin: 0.5rem 0 0;
+    color: var(--sl-color-gray-3);
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  /* スマホ表示での微調整 */
+  @media (max-width: 640px) {
+    .divider {
+      display: none; /* スマホ画面では区切り線を消して折り返しやすくする */
+    }
+    .footer-links {
+      gap: 0.6rem 1rem;
+    }
+  }
+</style>
